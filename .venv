@@ -1,2 +1,2 @@
-FLASK_APP=tes
+FLASK_APP=app
 FLASK_ENV=production
