@@ -51,7 +51,7 @@ def yts():
                 "error":str(e),
                 "inLine":e.__traceback__.tb_lineno
                 }
-        return jsonify(result)
+        return json.dumps(result,indent=2)
         
 
 @app.route("/ytvideo-no-sound", methods=["GET", "POST"])
