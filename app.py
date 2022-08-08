@@ -1,18 +1,12 @@
 from pytube import YouTube as yt
 import random, json
-from flask import Flask, render_template, request,jsonify
+from flask import Flask, render_template, request
 
 app= Flask(__name__)
 
 @app.route("/")
 def hom():
     return render_template("index.html")
-
-@app.route("/tests",methods=["GET","POST"])
-def cob():
-    data = [{'id': ('1', '2', '3'), 'name': ('bhanu', 'sivanagulu'), 'department': ('HR', 'IT')}, {'id': ('4', '5', '6'), 'name': ('sai', 'poori'), 'department': ('HR', 'IT')}, {'id': ('7', '8', '9'), 'name': ('teja', 'gowtam'), 'department': ('finance', 'IT')}, {'id': ('10', '11', '12'), 'name': ('sai', 'jyothi'), 'department': ('business', 'IT')}, {'id': ('13', '14', '15'), 'name': ('prudhvi', 'nagendram'), 'department': ('business', 'IT')}]
-    f = json.dumps(data, indent=2)
-    return f
 
 @app.route("/ytvideo-sound", methods=["GET", "POST"])
 def yts():
@@ -51,7 +45,7 @@ def yts():
                 "error":str(e),
                 "inLine":e.__traceback__.tb_lineno
                 }
-        return json.dumps(result,indent=2)
+        return json.dumps(result, indent=4)
         
 
 @app.route("/ytvideo-no-sound", methods=["GET", "POST"])
@@ -93,7 +87,7 @@ def ytnse():
                 "error":str(e),
                 "inLine":e.__traceback__.tb_lineno
             }
-        return jsonify(result)
+        return json.dumps(result, indent=4)
         
 @app.route("/ytaudio-only", methods=["GET", "POST"])
 def youtubevidnos():
@@ -131,8 +125,4 @@ def youtubevidnos():
             "error":str(e),
             "inLine":e.__traceback__.tb_lineno
         }
-    return jsonify(result)
-
-"""if __name__ == "__main__":
-    app.run(debug=True, port=3000)
-"""
+    return json.dumps(result, indent=4)
