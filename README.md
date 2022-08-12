@@ -9,4 +9,5 @@ https://pytube-api.herokuapp.com/ytaudio-only?url=link youtube
 $from requests import get,post
 $params = {"url":"youtube link"}
 $get("https://pytube-api.herokuapp.com/ytvideo-sound", params=params).text
+$post("https://pytube-api.herokuapp.com/ytvideo-no-sound", params=params).text
 ```
