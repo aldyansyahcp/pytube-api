@@ -113,7 +113,7 @@ def youtubevidnos():
                 "title":yu.title,
                 "msg":"berhasil",
                 "audio-only":{
-                    "m4A":res[2].url,
+                    "m4A":res[2].url+name,
                     "m4B":res[3].url+name,
                     "mp3":res[4].url+name
                 }
